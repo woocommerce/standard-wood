@@ -1,0 +1,269 @@
+/*  
+Theme Name: Wood Child Theme
+Theme URI: http://support.8bit.io/entries/373948-customization-wood-standard-theme-1-0-2-0
+Version: Preview 3
+Description: This is a child theme for Standard Theme 3
+Author: Jason Bradley
+Author URI: http://everchangingmedia.com
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Template: standard
+*/
+
+/* ------------------------------------------------------------------------ Import Standard Styles */
+
+@import url( '../../standard/style.css' );
+
+/* ------------------------------------------------------------------------ Customizations */
+
+//BEGIN LESS
+//Colors
+@white: #fff;
+@black: #000;
+@light-gray: #eee;
+@gray: #f0f0f0;
+@dark-gray: #999;
+@darkest-gray: #333;
+@blue: #02619c;
+
+//Variables
+@body-text-color: @white;
+
+@h-color: @black;
+
+@link-color: @black;
+@link-color-hover: @darkest-gray;
+
+@site-description-color: @white;
+@text-shadow-color: @black;
+
+@content-background-color: @white;
+@blockquote-background-color: @gray;
+@code-color: @black;
+
+@post-background-color: @blue;
+@post-title-color: @white;
+@post-header-color: @black;
+@the-time-color: @post-header-color;
+@post-meta-color: @black; 
+
+@post-format-quote-background-color: @dark-gray;
+
+@pager-background-color: @black;
+@pager-text-color: @white;
+@pager-background-color-hover: @dark-gray;
+@pager-text-color-hover: @white;
+
+@widget-title-color: @white;
+@widget-list-link-color: @black;
+@widget-list-link-color-hover: @darkest-gray;
+
+@border-color: @black;
+
+@footer-background-color: transparent;
+@footer-widget-title-color: @white;
+@footer-widget-list-link-color: @black;
+@footer-text-widget-text-color: @darkest-gray;
+
+@input-text-focus-color-r: 0;
+@input-text-focus-color-g: 0;
+@input-text-focus-color-b: 0;
+
+//Mixins
+.rounded-corners(@radius: 4px) {
+	border-radius: @radius;
+	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+}
+
+.gradient-background-fill(@from-color: @white, @to-color: @black) {
+	background-color: @from-color;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@from-color), to(@to-color));
+	background-image: -webkit-linear-gradient(top, @from-color, @to-color);
+	background-image: -moz-linear-gradient(top, @from-color, @to-color);
+	background-image: -o-linear-gradient(top, @from-color, @to-color);
+	background-image: -ms-linear-gradient(top, @from-color, @to-color);
+	background-image: linear-gradient(top, @from-color, @to-color);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='@from-color', EndColorStr='@to-color');
+}
+
+.gradient-background-fill-important(@from-color: @white, @to-color: @black) {
+	background-color: @from-color !important;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@from-color), to(@to-color)) !important;
+	background-image: -webkit-linear-gradient(top, @from-color, @to-color) !important;
+	background-image: -moz-linear-gradient(top, @from-color, @to-color) !important;
+	background-image: -o-linear-gradient(top, @from-color, @to-color) !important;
+	background-image: -ms-linear-gradient(top, @from-color, @to-color) !important;
+	background-image: linear-gradient(top, @from-color, @to-color) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='@from-color', EndColorStr='@to-color') !important;
+}
+
+.no-shadow() {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.to-uppercase() {
+	text-transform: uppercase;
+}
+
+.no-underline() {
+	text-decoration: none;
+}
+// END LESS
+
+/* Body */
+body { 
+	background: #fff url(images/wood.jpg) repeat left top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: @h-color;
+	font-family: Arial, Helvetica, Sans-serif;
+}
+
+a { 
+	color: @link-color;
+	&:hover { 
+		color: @link-color-hover; 
+	}
+}
+
+/* Header */
+
+#site-description { 
+	color: @site-description-color; 
+	font-size: 14px; 
+	.to-uppercase(); 
+	text-shadow: 0 0 20px @text-shadow-color;
+	line-height: 0; 
+	margin-top: 20px; 
+	.no-underline();
+}
+
+/* Post */
+
+.post, #comments, #pings, #no-comments, #respond {
+	background: #fff url(images/postbg.jpg) no-repeat left top;
+	.no-shadow();
+}
+
+.post-header-meta {
+	color: @post-header-color;
+	border-bottom: none;
+}
+
+.the-time {
+	color: @the-time-color;
+}
+
+.post.format-quote .post-header {
+	background-color: @post-format-quote-background-color;
+	background-image: url(images/bg-quote.png);
+}
+
+.breadcrumb {
+	background: none;
+	border: none;
+}
+
+blockquote {
+	background: @blockquote-background-color;
+	padding: 20px;
+	.rounded-corners();
+}
+
+#commentform code {
+	color: @code-color;
+}
+
+.pager a, .previous-page a, .next-page a {
+	color: @pager-text-color;
+	background: @pager-background-color;
+}
+
+.pager a:hover, .previous-page a:hover, .next-page a:hover {
+	color: @pager-text-color-hover;
+	background: @pager-background-color-hover;
+}
+
+
+/* Widgets */
+.widget {
+	ul li {
+		a { 
+			color: @widget-list-link-color; 
+			transition: all .25s ease-in-out; 
+			-moz-transition: all .25s ease-in-out;
+			-webkit-transition: all .25s ease-in-out; 
+			&:hover { 
+				color: @widget-list-link-color-hover; 
+				.no-underline();
+			}
+		}
+	}
+	h4.widget-title {
+		color: @widget-title-color;
+	}
+}
+
+/* Footer */
+#footer {
+	background: @footer-background-color;
+	.widget {
+		h4.widget-title {
+			color: @footer-widget-title-color;
+			border-bottom: solid 1px @border-color;
+		}
+		ul li {
+			border-bottom: none;
+			a {
+				color: @footer-widget-list-link-color;
+				.no-underline();
+			}
+		}
+	}
+	.textwidget {
+		color: @footer-text-widget-text-color;
+	}
+}
+
+/* Misc */
+input:focus,
+textarea:focus {
+  border-color: rgba(@input-text-focus-color-r, @input-text-focus-color-g, @input-text-focus-color-b, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  -webkit-box-shadow: inset 0 1px 1px rgba(@input-text-focus-color-r, @input-text-focus-color-g, @input-text-focus-color-b, 0.075), 0 0 8px rgba(@input-text-focus-color-r, @input-text-focus-color-g, @input-text-focus-color-b, 0.6);
+     -moz-box-shadow: inset 0 1px 1px rgba(@input-text-focus-color-r, @input-text-focus-color-g, @input-text-focus-color-b, 0.075), 0 0 8px rgba(@input-text-focus-color-r, @input-text-focus-color-g, @input-text-focus-color-b, 0.6);
+          box-shadow: inset 0 1px 1px rgba(@input-text-focus-color-r, @input-text-focus-color-g, @input-text-focus-color-b, 0.075), 0 0 8px rgba(@input-text-focus-color-r, @input-text-focus-color-g, @input-text-focus-color-b, 0.6);
+}
+
+/* ------------------------------------------------------------------------ Media Queries */
+
+/* Smartphones */
+@media (max-width: 480px) {
+
+}
+
+/* Tablet and Mobile */
+@media (max-width: 979px) {	
+			
+}
+
+/* Mobile to Tablet */
+@media only screen and (max-width: 767px) {
+	
+}
+
+/* Landscape Tablets */
+@media (min-width: 768px) and (max-width: 979px) {
+
+}
+
+/* Desktop */
+@media (min-width: 980px) {
+	
+}
+
